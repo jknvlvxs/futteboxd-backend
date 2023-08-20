@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    volumes:
+      - .:/api
+  db:
+    ports:
+      - ${DB_EXTERNAL_PORT}:5432

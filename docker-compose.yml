@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    init: true
+    command: npm run start:prod
+    ports:
+      - ${PORT_API}:3000
+    extra_hosts:
+      - 'host.docker.internal:172.17.0.1'
+    env_file: .env
+  db:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data: ~
