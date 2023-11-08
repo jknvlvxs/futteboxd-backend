@@ -11,14 +11,16 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ObjectId,
+  ObjectIdColumn,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @ObjectIdColumn()
+  id: ObjectId;
 
   @Column({ unique: true, nullable: false })
   @IsNotEmpty()

@@ -1,30 +1,28 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as argon2 from 'argon2';
+import { MongoRepository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) private readonly repository: Repository<User>,
+    @InjectRepository(User) private readonly repository: MongoRepository<User>,
   ) {}
   async create(createUserDto: CreateUserDto) {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(createUserDto.password, salt);
-
-    const { password, ...user } = await this.repository.save(
-      this.repository.create({
-        ...createUserDto,
-        password: hash,
-        role: 'user',
-      }),
-    );
-
-    return user;
-    console.log(password);
+    // const hash = await argon2.hash(createUserDto.password);
+    // const create = this.repository.create({
+    //   ...createUserDto,
+    //   password: '123123123',
+    //   role: 'user',
+    // });
+    // console.log(create);
+    // const { password, ...user } = await this.repository.save(create);
+    // console.log(user);
+    // return user;
+    // console.log(password);
   }
 
   findAll() {
