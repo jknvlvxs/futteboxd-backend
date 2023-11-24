@@ -1,8 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UsersService } from 'src/users/users.service';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { User } from 'src/users/entities/user.entity';
+import { UsersService } from 'src/users/users.service';
+import * as sha256 from 'crypto-js/sha256';
 
 @Injectable()
 export class AuthService {
@@ -11,25 +13,28 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(email: string, password: string) {
-    const user = await this.usersService.findByEmail(email);
+  async validateUser(username: string, password: string) {
+    const user = await this.usersService.findByUsername(username);
+    console.log(user);
 
-    if (user && bcrypt.compareSync(password, user.password)) {
-      const { password, ...result } = user;
-      return result;
-      console.log(password);
-    } else {
-      return null;
+    if (user) {
+      const compare = await bcrypt.compare(password, user.password);
+      console.log(compare);
+      if (compare) {
+        const { password, ...result } = user;
+        return result as User;
+        console.log(password);
+      }
     }
+
+    return null;
   }
 
-  async login(email: string, password: string) {
-    const user = await this.validateUser(email, password);
-    if (!user) throw new UnauthorizedException('Invalid credentials');
+  async login(username: string, password: string) {
+    const user = await this.validateUser(username, password);
+    if (!user) throw new UnauthorizedException('Oops! Usuário não encontrado');
 
-    const payload = { email: user.email, sub: user.id };
-
-    return { access_token: this.jwtService.sign(payload) };
+    return this.validateUserByJwt(user);
   }
 
   async register(body: CreateUserDto) {
@@ -44,13 +49,20 @@ export class AuthService {
 
     const user = await this.usersService.create(body);
 
+    return this.validateUserByJwt(user);
+  }
+
+  async validateUserByJwt(user: User) {
+    const hash = sha256(user.email);
+    const avatar = `https://gravatar.com/avatar/${hash}`;
+
     return {
-      user: {
-        id: user.id,
+      access_token: this.jwtService.sign({
         email: user.email,
         username: user.username,
-      },
-      access_token: this.jwtService.sign({ email: user.email, sub: user.id }),
+        sub: user.id,
+        avatar,
+      }),
     };
   }
 }

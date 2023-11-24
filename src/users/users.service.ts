@@ -56,14 +56,13 @@ export class UsersService {
     return this.repository.findOneBy({ email: email });
   }
 
-  async verifyIfUserExists(email: string, username: string) {
-    const verifyEmail = this.repository.findOneBy({
-      email: email,
-    });
+  async findByUsername(username: string) {
+    return this.repository.findOneBy({ username: username });
+  }
 
-    const verifyUsername = this.repository.findOneBy({
-      username: username,
-    });
+  async verifyIfUserExists(email: string, username: string) {
+    const verifyEmail = this.findByEmail(email);
+    const verifyUsername = this.findByUsername(username);
 
     const [emailExists, usernameExists] = await Promise.all([
       verifyEmail,
