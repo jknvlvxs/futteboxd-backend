@@ -20,9 +20,7 @@ export class UsersService {
       password: hash,
       role: 'user',
     });
-    const { password, ...user } = await this.repository.save(create);
-    return user;
-    console.log(password);
+    return this.repository.save(create);
   }
 
   findAll() {
@@ -56,5 +54,26 @@ export class UsersService {
 
   async findByEmail(email: string) {
     return this.repository.findOneBy({ email: email });
+  }
+
+  async verifyIfUserExists(email: string, username: string) {
+    const verifyEmail = this.repository.findOneBy({
+      email: email,
+    });
+
+    const verifyUsername = this.repository.findOneBy({
+      username: username,
+    });
+
+    const [emailExists, usernameExists] = await Promise.all([
+      verifyEmail,
+      verifyUsername,
+    ]);
+
+    if (emailExists || usernameExists) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
