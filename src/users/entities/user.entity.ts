@@ -13,7 +13,6 @@ import {
   Entity,
   ObjectId,
   ObjectIdColumn,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 

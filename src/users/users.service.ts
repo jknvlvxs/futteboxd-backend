@@ -1,16 +1,26 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  NotFoundException,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcryptjs';
 import { MongoRepository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
+import { ProfileService } from 'src/profile/profile.service';
+import { CreateProfileDto } from 'src/profile/dto/create-profile.dto';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly repository: MongoRepository<User>,
+    @Inject(forwardRef(() => ProfileService))
+    private readonly profileService: ProfileService,
   ) {}
+
   async create(createUserDto: CreateUserDto) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(createUserDto.password, salt);
@@ -20,6 +30,14 @@ export class UsersService {
       password: hash,
       role: 'user',
     });
+
+    this.profileService.create({
+      username: create.username,
+      name: create.username,
+      avatar: createUserDto.avatar,
+      user: create,
+    } as CreateProfileDto);
+
     return this.repository.save(create);
   }
 

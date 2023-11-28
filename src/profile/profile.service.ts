@@ -1,26 +1,49 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Profile } from './entities/profile.entity';
+import { MongoRepository } from 'typeorm';
 
 @Injectable()
 export class ProfileService {
+  constructor(
+    @InjectRepository(Profile)
+    private readonly repository: MongoRepository<Profile>,
+  ) {}
+
   create(createProfileDto: CreateProfileDto) {
-    return 'This action adds a new profile';
+    return this.repository.save(this.repository.create(createProfileDto));
   }
 
   findAll() {
-    return `This action returns all profile`;
+    return this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} profile`;
+  findOne(id: string) {
+    return this.repository.findOneBy(id);
   }
 
-  update(id: number, updateProfileDto: UpdateProfileDto) {
-    return `This action updates a #${id} profile`;
+  async update(id: string, updateProfileDto: UpdateProfileDto) {
+    const profile = await this.findOne(id);
+
+    if (!profile)
+      throw new NotFoundException(`Profile with id ${id} not found`);
+
+    const preload = await this.repository.preload({
+      id: id,
+      ...updateProfileDto,
+    });
+
+    return this.repository.save(preload);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} profile`;
+  async remove(id: string) {
+    const profile = await this.findOne(id);
+
+    if (!profile)
+      throw new NotFoundException(`Profile with id ${id} not found`);
+
+    return this.repository.softRemove(profile);
   }
 }
