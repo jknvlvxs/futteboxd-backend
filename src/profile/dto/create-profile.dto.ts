@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { User } from 'src/users/entities/user.entity';
+import { ObjectId } from 'typeorm';
 
 export class CreateProfileDto {
   @IsString()
@@ -16,5 +16,5 @@ export class CreateProfileDto {
 
   @IsString()
   @IsNotEmpty()
-  user: User;
+  user: ObjectId;
 }

@@ -41,6 +41,9 @@ export class User extends BaseEntity {
   @IsEnum(['admin', 'user'])
   role: string;
 
+  @Column({ nullable: true })
+  profile: string;
+
   @CreateDateColumn()
   createdAt: Date;
 

@@ -1,13 +1,11 @@
 import { IsNotEmpty, Length } from 'class-validator';
 import { ObjectId } from 'mongodb';
-import { User } from 'src/users/entities/user.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinColumn,
   ObjectIdColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -31,9 +29,7 @@ export class Profile extends BaseEntity {
   avatar: string;
 
   @Column({ nullable: false })
-  @IsNotEmpty()
-  @JoinColumn()
-  user: User;
+  user: ObjectId;
 
   @CreateDateColumn()
   createdAt: Date;

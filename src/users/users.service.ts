@@ -12,6 +12,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { ProfileService } from 'src/profile/profile.service';
 import { CreateProfileDto } from 'src/profile/dto/create-profile.dto';
+import * as sha256 from 'crypto-js/sha256';
 
 @Injectable()
 export class UsersService {
@@ -34,8 +35,8 @@ export class UsersService {
     this.profileService.create({
       username: create.username,
       name: create.username,
-      avatar: createUserDto.avatar,
-      user: create,
+      avatar: `https://gravatar.com/avatar/${sha256(create.email)}`,
+      user: create.id,
     } as CreateProfileDto);
 
     return this.repository.save(create);
