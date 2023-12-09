@@ -30,7 +30,10 @@ export class AuthService {
 
   async login(username: string, password: string) {
     const user = await this.validateUser(username, password);
-    if (!user) throw new UnauthorizedException('Oops! Usuário não encontrado');
+    if (!user)
+      throw new UnauthorizedException(
+        'Oops! Não foi possível realizar o login. Verifique os dados de nome de usuário e senha e tente novamente',
+      );
 
     return this.validateUserByJwt(user);
   }
@@ -52,7 +55,7 @@ export class AuthService {
 
   async validateUserByJwt(user: User) {
     const hash = sha256(user.email);
-    const avatar = `https://gravatar.com/avatar/${hash}`;
+    const avatar = `https://gravatar.com/avatar/${hash}?s=800`;
 
     return {
       access_token: this.jwtService.sign({

@@ -35,7 +35,7 @@ export class UsersService {
     this.profileService.create({
       username: create.username,
       name: create.username,
-      avatar: `https://gravatar.com/avatar/${sha256(create.email)}`,
+      avatar: `https://gravatar.com/avatar/${sha256(create.email)}?s=800`,
       user: create.id,
     } as CreateProfileDto);
 
