@@ -24,6 +24,17 @@ export class ProfileService {
     return this.repository.findOneBy(id);
   }
 
+  async findOneByUsername(username: string) {
+    const profile = await this.repository.findOne({ where: { username } });
+
+    if (!profile)
+      throw new NotFoundException(
+        `Profile with username ${username} not found`,
+      );
+
+    return profile;
+  }
+
   async update(id: string, updateProfileDto: UpdateProfileDto) {
     const profile = await this.findOne(id);
 
