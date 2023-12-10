@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FollowsService } from 'src/follows/follows.service';
 import { ReviewsService } from 'src/reviews/reviews.service';
-import { MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { Profile } from './entities/profile.entity';
@@ -11,13 +11,14 @@ import { Profile } from './entities/profile.entity';
 export class ProfileService {
   constructor(
     @InjectRepository(Profile)
-    private readonly repository: MongoRepository<Profile>,
+    private readonly repository: Repository<Profile>,
     private readonly reviewRepository: ReviewsService,
     private readonly followsService: FollowsService,
   ) {}
 
   create(createProfileDto: CreateProfileDto) {
-    return this.repository.save(this.repository.create(createProfileDto));
+    const create = this.repository.create(createProfileDto);
+    return this.repository.save(create);
   }
 
   async findAll() {
@@ -37,7 +38,11 @@ export class ProfileService {
   }
 
   findOne(id: string) {
-    return this.repository.findOneBy(id);
+    return this.repository.findOne({ where: { id } });
+  }
+
+  findByUserId(userId: string) {
+    return this.repository.findOne({ where: { user: { id: userId } } });
   }
 
   async findOneByUsername(username: string) {

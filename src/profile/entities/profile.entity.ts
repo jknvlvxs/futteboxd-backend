@@ -1,19 +1,21 @@
 import { IsNotEmpty, Length } from 'class-validator';
-import { ObjectId } from 'mongodb';
+import { User } from 'src/users/entities/user.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ObjectIdColumn,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 export class Profile extends BaseEntity {
-  @ObjectIdColumn()
-  id: ObjectId;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column({ unique: true, nullable: false })
   @IsNotEmpty()
@@ -28,8 +30,9 @@ export class Profile extends BaseEntity {
   @IsNotEmpty()
   avatar: string;
 
-  @Column({ nullable: false })
-  user: ObjectId;
+  @OneToOne(() => User)
+  @JoinColumn()
+  user: User;
 
   @CreateDateColumn()
   createdAt: Date;

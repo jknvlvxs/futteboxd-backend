@@ -1,10 +1,9 @@
-import { IsNotEmpty } from 'class-validator';
-import { ObjectId } from 'typeorm';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateFollowDto {
-  @IsNotEmpty()
-  follower: ObjectId;
+  @IsOptional()
+  follower?: string;
 
   @IsNotEmpty()
-  following: ObjectId;
+  following: string;
 }

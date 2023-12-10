@@ -21,7 +21,7 @@ export class AuthService {
       if (compare) {
         const { password, ...result } = user;
         return result as User;
-        console.log(password);
+        console.info(password);
       }
     }
 

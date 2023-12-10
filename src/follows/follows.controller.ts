@@ -1,25 +1,44 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
+import { JwtGuard } from 'src/auth/auth/jwt.guard';
 import { CreateFollowDto } from './dto/create-follow.dto';
 import { FollowsService } from './follows.service';
-import { ObjectId } from 'mongodb';
 
 @Controller('follows')
 export class FollowsController {
   constructor(private readonly followsService: FollowsService) {}
 
-  @Post()
-  create(@Body() createFollowDto: CreateFollowDto) {
-    return this.followsService.create(createFollowDto);
+  @UseGuards(JwtGuard)
+  @Post('')
+  follow(@Request() req, @Body() body: CreateFollowDto) {
+    return this.followsService.follow({
+      follower: req.user.sub,
+      following: body.following,
+    });
   }
 
   @Get('followers/:id')
-  findFollowers(@Param('id') id: ObjectId) {
+  findFollowers(@Param('id') id: string) {
     return this.followsService.findFollowers(id);
   }
 
   @Get('following/:id')
-  findFollowing(@Param('id') id: ObjectId) {
+  findFollowing(@Param('id') id: string) {
     return this.followsService.findFollowing(id);
+  }
+
+  @UseGuards(JwtGuard)
+  @Get(':username')
+  follows(@Request() req, @Param('username') username: string) {
+    return this.followsService.follows(req.user.username, username);
   }
 
   @Delete(':id')

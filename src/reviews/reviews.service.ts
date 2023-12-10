@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ObjectId } from 'mongodb';
-import { MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { Review } from './entities/review.entity';
@@ -10,7 +9,7 @@ import { Review } from './entities/review.entity';
 export class ReviewsService {
   constructor(
     @InjectRepository(Review)
-    private readonly repository: MongoRepository<Review>,
+    private readonly repository: Repository<Review>,
   ) {}
 
   create(createReviewDto: CreateReviewDto) {
@@ -23,11 +22,11 @@ export class ReviewsService {
   }
 
   findOne(id: string) {
-    return this.repository.findOneBy(id);
+    return this.repository.findOne({ where: { id } });
   }
 
-  findByProfileId(profileId: ObjectId) {
-    return this.repository.find({ where: { profile: profileId } });
+  findByProfileId(profileId: string) {
+    return this.repository.find({ where: { profile: { id: profileId } } });
   }
 
   async update(id: string, updateReviewDto: UpdateReviewDto) {

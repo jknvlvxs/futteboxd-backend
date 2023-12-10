@@ -5,21 +5,23 @@ import {
   IsStrongPassword,
   Length,
 } from 'class-validator';
+import { Profile } from 'src/profile/entities/profile.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ObjectId,
-  ObjectIdColumn,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
-  @ObjectIdColumn()
-  id: ObjectId;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column({ unique: true, nullable: false })
   @IsNotEmpty()
@@ -41,8 +43,9 @@ export class User extends BaseEntity {
   @IsEnum(['admin', 'user'])
   role: string;
 
-  @Column({ nullable: true })
-  profile: string;
+  @OneToOne(() => Profile)
+  @JoinColumn()
+  profile: Profile;
 
   @CreateDateColumn()
   createdAt: Date;

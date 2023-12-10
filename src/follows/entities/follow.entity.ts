@@ -1,25 +1,25 @@
-import { IsNotEmpty } from 'class-validator';
-import { ObjectId } from 'mongodb';
+import { Transform } from 'class-transformer';
+import { Profile } from 'src/profile/entities/profile.entity';
 import {
-  Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ObjectIdColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 @Entity()
 export class Follow {
-  @ObjectIdColumn()
-  id: ObjectId;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column()
-  @IsNotEmpty()
-  follower: ObjectId;
+  @ManyToOne(() => Profile)
+  @Transform(({ value }) => value.id)
+  follower: Profile;
 
-  @Column()
-  @IsNotEmpty()
-  following: ObjectId;
+  @ManyToOne(() => Profile)
+  @Transform(({ value }) => value.id)
+  following: Profile;
 
   @CreateDateColumn()
   createdAt: Date;

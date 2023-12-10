@@ -8,7 +8,7 @@ FROM base as builder
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm ci
 
 COPY . .
 
@@ -24,6 +24,8 @@ COPY --from=builder package*.json ./
 COPY --from=builder tsconfig*.json ./
 COPY --from=builder database.json ./
 COPY --from=builder node_modules/ ./node_modules
+COPY --from=builder resource/ ./resource
+COPY --from=builder migrations/ ./migrations
 COPY --from=builder dist/ ./dist
 
 CMD ["npm", "start"]

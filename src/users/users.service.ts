@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcryptjs';
-import { MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -17,7 +17,7 @@ import * as sha256 from 'crypto-js/sha256';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) private readonly repository: MongoRepository<User>,
+    @InjectRepository(User) private readonly repository: Repository<User>,
     @Inject(forwardRef(() => ProfileService))
     private readonly profileService: ProfileService,
   ) {}
@@ -32,14 +32,16 @@ export class UsersService {
       role: 'user',
     });
 
-    this.profileService.create({
+    const user = await this.repository.save(create);
+
+    const profile = await this.profileService.create({
       username: create.username,
       name: create.username,
       avatar: `https://gravatar.com/avatar/${sha256(create.email)}?s=800`,
-      user: create.id,
+      user: user,
     } as CreateProfileDto);
 
-    return this.repository.save(create);
+    return this.update(user.id, { profile: profile } as UpdateUserDto);
   }
 
   findAll() {

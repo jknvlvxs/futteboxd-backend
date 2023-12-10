@@ -8,3 +8,6 @@ services:
     command: npm run start:dev
     volumes:
       - .:/api
+  db:
+    ports:
+      - ${DB_EXTERNAL_PORT}:5432
