@@ -1,6 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
 import { ObjectId } from 'mongodb';
-import { Profile } from 'src/profile/entities/profile.entity';
 import {
   Column,
   CreateDateColumn,
@@ -14,13 +13,13 @@ export class Follow {
   @ObjectIdColumn()
   id: ObjectId;
 
-  @Column(() => Profile)
+  @Column()
   @IsNotEmpty()
-  follower: Profile;
+  follower: ObjectId;
 
-  @Column(() => Profile)
+  @Column()
   @IsNotEmpty()
-  following: Profile;
+  following: ObjectId;
 
   @CreateDateColumn()
   createdAt: Date;

@@ -1,5 +1,6 @@
 import { IsNotEmpty, Length } from 'class-validator';
 import { ObjectId } from 'mongodb';
+import { Profile } from 'src/profile/entities/profile.entity';
 import {
   Column,
   CreateDateColumn,
@@ -29,7 +30,7 @@ export class Review {
 
   @Column()
   @IsNotEmpty()
-  profile: ObjectId;
+  profile: Profile;
 
   @CreateDateColumn()
   createdAt: Date;

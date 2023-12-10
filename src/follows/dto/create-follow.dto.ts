@@ -1,10 +1,10 @@
 import { IsNotEmpty } from 'class-validator';
-import { Profile } from 'src/profile/entities/profile.entity';
+import { ObjectId } from 'typeorm';
 
 export class CreateFollowDto {
   @IsNotEmpty()
-  follower: Profile;
+  follower: ObjectId;
 
   @IsNotEmpty()
-  following: Profile;
+  following: ObjectId;
 }

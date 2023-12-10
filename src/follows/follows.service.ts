@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { CreateFollowDto } from './dto/create-follow.dto';
 import { Follow } from './entities/follow.entity';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class FollowsService {
@@ -16,11 +17,11 @@ export class FollowsService {
     return this.repository.save(create);
   }
 
-  findFollowers(id: string) {
+  findFollowers(id: ObjectId) {
     return this.repository.find({ following: id });
   }
 
-  findFollowing(id: string) {
+  findFollowing(id: ObjectId) {
     return this.repository.find({ follower: id });
   }
 

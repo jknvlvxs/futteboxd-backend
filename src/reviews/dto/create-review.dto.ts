@@ -1,5 +1,5 @@
 import { IsNotEmpty, Length } from 'class-validator';
-import { ObjectId } from 'mongodb';
+import { Profile } from 'src/profile/entities/profile.entity';
 
 export class CreateReviewDto {
   @IsNotEmpty()
@@ -13,5 +13,5 @@ export class CreateReviewDto {
   rating: number;
 
   @IsNotEmpty()
-  profile: ObjectId;
+  profile: Profile;
 }

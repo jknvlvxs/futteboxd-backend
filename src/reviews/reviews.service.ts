@@ -1,9 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { ObjectId } from 'mongodb';
+import { MongoRepository } from 'typeorm';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { Review } from './entities/review.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { MongoRepository } from 'typeorm';
 
 @Injectable()
 export class ReviewsService {
@@ -23,6 +24,10 @@ export class ReviewsService {
 
   findOne(id: string) {
     return this.repository.findOneBy(id);
+  }
+
+  findByProfileId(profileId: ObjectId) {
+    return this.repository.find({ where: { profile: profileId } });
   }
 
   async update(id: string, updateReviewDto: UpdateReviewDto) {

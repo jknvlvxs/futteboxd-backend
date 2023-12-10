@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateFollowDto } from './dto/create-follow.dto';
 import { FollowsService } from './follows.service';
+import { ObjectId } from 'mongodb';
 
 @Controller('follows')
 export class FollowsController {
@@ -12,12 +13,12 @@ export class FollowsController {
   }
 
   @Get('followers/:id')
-  findFollowers(@Param('id') id: string) {
+  findFollowers(@Param('id') id: ObjectId) {
     return this.followsService.findFollowers(id);
   }
 
   @Get('following/:id')
-  findFollowing(@Param('id') id: string) {
+  findFollowing(@Param('id') id: ObjectId) {
     return this.followsService.findFollowing(id);
   }
 
