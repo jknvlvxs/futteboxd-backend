@@ -21,17 +21,27 @@ export class FollowsService {
 
   async follow(follow: CreateFollowDto) {
     const follower = await this.profileService.findByUserId(follow.follower);
-    const following = await this.profileService.findOne(follow.following);
 
     if (!follower)
       throw new NotFoundException(
         `Profile with user.id ${follow.follower} not found`,
       );
 
+    const following = await this.profileService.findOne(follow.following);
+
     if (!following)
       throw new NotFoundException(
         `Profile with profile.id ${follow.following} not found`,
       );
+
+    const verifyIfExists = await this.repository.findOne({
+      where: {
+        follower: { id: follower.id },
+        following: { id: following.id },
+      },
+    });
+
+    if (verifyIfExists) return this.remove(verifyIfExists.id);
 
     const create = this.repository.create({
       follower: { id: follower.id },
@@ -44,6 +54,7 @@ export class FollowsService {
   async findFollowers(id: string) {
     const followers = await this.repository.find({
       where: { following: { id } },
+      relations: ['following', 'follower'],
     });
     return followers;
   }
@@ -51,6 +62,7 @@ export class FollowsService {
   async findFollowing(id: string) {
     const following = await this.repository.find({
       where: { follower: { id } },
+      relations: ['following', 'follower'],
     });
     return following;
   }
