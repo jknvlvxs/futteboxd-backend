@@ -1,26 +1,51 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CreateLeagueDto } from './dto/create-league.dto';
 import { UpdateLeagueDto } from './dto/update-league.dto';
+import { League } from './entities/league.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class LeaguesService {
+  constructor(
+    @InjectRepository(League) private readonly repository: Repository<League>,
+  ) {}
+
   create(createLeagueDto: CreateLeagueDto) {
-    return 'This action adds a new league';
+    const create = this.repository.create(createLeagueDto);
+    return this.repository.save(create);
   }
 
   findAll() {
-    return `This action returns all leagues`;
+    return this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} league`;
+  async findOne(id: string) {
+    const league = await this.repository.findOne({ where: { id } });
+
+    if (!league) throw new NotFoundException(`League with id ${id} not found`);
+
+    return league;
   }
 
-  update(id: number, updateLeagueDto: UpdateLeagueDto) {
-    return `This action updates a #${id} league`;
+  async update(id: string, updateLeagueDto: UpdateLeagueDto) {
+    const league = await this.findOne(id);
+
+    if (!league) throw new NotFoundException(`League with id ${id} not found`);
+
+    const preload = await this.repository.preload({
+      id: league.id,
+      ...updateLeagueDto,
+    });
+
+    return this.repository.save(preload);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} league`;
+  async remove(id: string) {
+    const league = await this.findOne(id);
+
+    if (!league) throw new NotFoundException(`League with id ${id} not found`);
+
+    return this.repository.softRemove(league);
   }
 }
