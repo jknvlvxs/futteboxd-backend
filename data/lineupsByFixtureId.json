@@ -6,37 +6,6 @@
         "coach": "Jorge Jesus",
         "formation": "4-1-3-2",
         "startXI": [
-          { "number": "1", "player": "Franco Armani" },
-          { "number": "29", "player": "Gonzalo Montiel" },
-          { "number": "28", "player": "Lucas Martinez" },
-          { "number": "22", "player": "Javier Pinola" },
-          { "number": "20", "player": "Milton Casco" },
-          { "number": "24", "player": "Enzo P\u00e9rez" },
-          { "number": "26", "player": "Ignacio Fern\u00e1ndez" },
-          { "number": "15", "player": "Exequiel Palacios" },
-          { "number": "11", "player": "Nicol\u00e1s De la Cruz" },
-          { "number": "19", "player": "Rafael Santos Borr\u00e9" },
-          { "number": "7", "player": "Mat\u00edas Su\u00e1rez" }
-        ],
-        "substitutes": [
-          { "number": "25", "player": "Enrique Bologna" },
-          { "number": "14", "player": "Germ\u00e1n Lux" },
-          { "number": "2", "player": "Robert Rojas" },
-          { "number": "4", "player": "Fabrizio Angileri" },
-          { "number": "6", "player": "Paulo D\u00edaz" },
-          { "number": "10", "player": "Juan Quintero" },
-          { "number": "5", "player": "Bruno Zuculini" },
-          { "number": "21", "player": "Cristian Ferreira" },
-          { "number": "23", "player": "Leonardo Ponzio" },
-          { "number": "30", "player": "Ignacio Scocco" },
-          { "number": "9", "player": "Juli\u00e1n \u00c1lvarez" },
-          { "number": "27", "player": "Lucas Pratto" }
-        ]
-      },
-      "River Plate": {
-        "coach": "M. Gallardo",
-        "formation": "4-2-3-1",
-        "startXI": [
           { "number": "1", "player": "Diego Alves" },
           { "number": "18", "player": "Rafinha" },
           { "number": "3", "player": "Rodrigo Caio" },
@@ -62,6 +31,37 @@
           { "number": "28", "player": "Orlando Berr\u00edo" },
           { "number": "10", "player": "Diego" },
           { "number": "20", "player": "Lincoln" }
+        ]
+      },
+      "River Plate": {
+        "coach": "M. Gallardo",
+        "formation": "4-2-3-1",
+        "startXI": [
+          { "number": "1", "player": "Franco Armani" },
+          { "number": "29", "player": "Gonzalo Montiel" },
+          { "number": "28", "player": "Lucas Martinez" },
+          { "number": "22", "player": "Javier Pinola" },
+          { "number": "20", "player": "Milton Casco" },
+          { "number": "24", "player": "Enzo P\u00e9rez" },
+          { "number": "26", "player": "Ignacio Fern\u00e1ndez" },
+          { "number": "15", "player": "Exequiel Palacios" },
+          { "number": "11", "player": "Nicol\u00e1s De la Cruz" },
+          { "number": "19", "player": "Rafael Santos Borr\u00e9" },
+          { "number": "7", "player": "Mat\u00edas Su\u00e1rez" }
+        ],
+        "substitutes": [
+          { "number": "25", "player": "Enrique Bologna" },
+          { "number": "14", "player": "Germ\u00e1n Lux" },
+          { "number": "2", "player": "Robert Rojas" },
+          { "number": "4", "player": "Fabrizio Angileri" },
+          { "number": "6", "player": "Paulo D\u00edaz" },
+          { "number": "10", "player": "Juan Quintero" },
+          { "number": "5", "player": "Bruno Zuculini" },
+          { "number": "21", "player": "Cristian Ferreira" },
+          { "number": "23", "player": "Leonardo Ponzio" },
+          { "number": "30", "player": "Ignacio Scocco" },
+          { "number": "9", "player": "Juli\u00e1n \u00c1lvarez" },
+          { "number": "27", "player": "Lucas Pratto" }
         ]
       }
     }
