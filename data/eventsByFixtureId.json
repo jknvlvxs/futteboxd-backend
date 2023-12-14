@@ -1,0 +1,126 @@
+{
+  "api": {
+    "results": 17,
+    "events": [
+      {
+        "elapsed": "14",
+        "teamName": "Flamengo",
+        "player": "Rafael Santos Borr\u00e9",
+        "type": "Goal",
+        "detail": "Normal Goal"
+      },
+      {
+        "elapsed": "30",
+        "teamName": "Flamengo",
+        "player": "Milton Casco",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "45",
+        "teamName": "Flamengo",
+        "player": "Mat\u00edas Su\u00e1rez",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "54",
+        "teamName": "River Plate",
+        "player": "Pablo Mar\u00ed",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "66",
+        "teamName": "River Plate",
+        "player": "Gerson",
+        "type": "subst",
+        "detail": "Diego"
+      },
+      {
+        "elapsed": "69",
+        "teamName": "Flamengo",
+        "player": "Ignacio Fern\u00e1ndez",
+        "type": "subst",
+        "detail": "Juli\u00e1n \u00c1lvarez"
+      },
+      {
+        "elapsed": "71",
+        "teamName": "Flamengo",
+        "player": "Enzo P\u00e9rez",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "75",
+        "teamName": "Flamengo",
+        "player": "Rafael Santos Borr\u00e9",
+        "type": "subst",
+        "detail": "Lucas Pratto"
+      },
+      {
+        "elapsed": "77",
+        "teamName": "Flamengo",
+        "player": "Milton Casco",
+        "type": "subst",
+        "detail": "Paulo D\u00edaz"
+      },
+      {
+        "elapsed": "80",
+        "teamName": "River Plate",
+        "player": "Rafinha",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "86",
+        "teamName": "River Plate",
+        "player": "Willian Ar\u00e3o",
+        "type": "subst",
+        "detail": "Vitinho"
+      },
+      {
+        "elapsed": "89",
+        "teamName": "River Plate",
+        "player": "Gabriel Barbosa",
+        "type": "Goal",
+        "detail": "Normal Goal"
+      },
+      {
+        "elapsed": "90",
+        "teamName": "River Plate",
+        "player": "Gabriel Barbosa",
+        "type": "Card",
+        "detail": "Yellow Card"
+      },
+      {
+        "elapsed": "90",
+        "teamName": "River Plate",
+        "player": "Gabriel Barbosa",
+        "type": "Card",
+        "detail": "Red Card"
+      },
+      {
+        "elapsed": "90",
+        "teamName": "River Plate",
+        "player": "Gabriel Barbosa",
+        "type": "Goal",
+        "detail": "Normal Goal"
+      },
+      {
+        "elapsed": "90",
+        "teamName": "River Plate",
+        "player": "Giorgian De Arrascaeta",
+        "type": "subst",
+        "detail": "Robert Piris"
+      },
+      {
+        "elapsed": "90",
+        "teamName": "Flamengo",
+        "player": "Exequiel Palacios",
+        "type": "Card",
+        "detail": "Red Card"
+      }
+    ]
+  }
+}
