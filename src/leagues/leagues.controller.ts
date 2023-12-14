@@ -30,6 +30,14 @@ export class LeaguesController {
     return this.leaguesService.findOne(id);
   }
 
+  @Get(':country/:season')
+  findLeagues(
+    @Param('country') country: string,
+    @Param('season') season: string,
+  ) {
+    return this.leaguesService.findLeagues(country, +season);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateLeagueDto: UpdateLeagueDto) {
     return this.leaguesService.update(id, updateLeagueDto);

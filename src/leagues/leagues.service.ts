@@ -41,6 +41,19 @@ export class LeaguesService {
     return league;
   }
 
+  async findLeagues(country: string, season: number) {
+    const leagues = await this.repository.find({
+      where: { country, season },
+    });
+
+    if (!leagues)
+      throw new NotFoundException(
+        `Leagues with country ${country} and season ${season} not found`,
+      );
+
+    return leagues;
+  }
+
   async update(id: string, updateLeagueDto: UpdateLeagueDto) {
     const league = await this.findOne(id);
 
