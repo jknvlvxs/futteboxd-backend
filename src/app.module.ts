@@ -9,6 +9,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ReviewsModule } from './reviews/reviews.module';
 import { FollowsModule } from './follows/follows.module';
 import { LeaguesModule } from './leagues/leagues.module';
+import { CountriesModule } from './countries/countries.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { LeaguesModule } from './leagues/leagues.module';
     ReviewsModule,
     FollowsModule,
     LeaguesModule,
+    CountriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
