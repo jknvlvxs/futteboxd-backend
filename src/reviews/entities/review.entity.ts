@@ -1,6 +1,7 @@
 import { Transform } from 'class-transformer';
 import { Profile } from 'src/profile/entities/profile.entity';
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -11,7 +12,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Review {
+export class Review extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

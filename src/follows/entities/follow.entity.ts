@@ -1,6 +1,7 @@
 import { Transform } from 'class-transformer';
 import { Profile } from 'src/profile/entities/profile.entity';
 import {
+  BaseEntity,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
@@ -9,7 +10,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 @Entity()
-export class Follow {
+export class Follow extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
