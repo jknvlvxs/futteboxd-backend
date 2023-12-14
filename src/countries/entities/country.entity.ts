@@ -22,9 +22,6 @@ export class Country extends BaseEntity {
   @Column({ nullable: false })
   flag: string;
 
-  @Column({ nullable: false })
-  standings: boolean;
-
   @CreateDateColumn()
   createdAt: Date;
 
