@@ -11,6 +11,7 @@ import { FollowsModule } from './follows/follows.module';
 import { LeaguesModule } from './leagues/leagues.module';
 import { CountriesModule } from './countries/countries.module';
 import { TeamsModule } from './teams/teams.module';
+import { FixturesModule } from './fixtures/fixtures.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { TeamsModule } from './teams/teams.module';
     LeaguesModule,
     CountriesModule,
     TeamsModule,
+    FixturesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
