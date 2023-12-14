@@ -10,13 +10,13 @@ import {
 export class CreateCountryDto {
   @IsString()
   @IsNotEmpty()
-  country: string;
+  name: string;
 
   @IsString()
   @IsOptional()
   @ValidateIf((e) => e === '')
   @Max(2)
-  country_code: string;
+  code: string;
 
   @IsString()
   @ValidateIf((e) => e === '')

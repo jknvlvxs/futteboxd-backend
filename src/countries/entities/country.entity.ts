@@ -14,10 +14,10 @@ export class Country extends BaseEntity {
   id: string;
 
   @Column({ nullable: false })
-  country: string;
+  name: string;
 
   @Column({ nullable: true })
-  country_code: string;
+  code: string;
 
   @Column({ nullable: false })
   flag: string;
