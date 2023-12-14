@@ -17,7 +17,12 @@ export class CountriesService {
   }
 
   findAll() {
-    return this.repository.find();
+    return this.repository.find({
+      order: {
+        priority: 'ASC',
+        name: 'ASC',
+      },
+    });
   }
 
   async findOne(id: string) {

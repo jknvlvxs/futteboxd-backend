@@ -22,6 +22,9 @@ export class Country extends BaseEntity {
   @Column({ nullable: false })
   flag: string;
 
+  @Column({ nullable: true })
+  priority: number;
+
   @CreateDateColumn()
   createdAt: Date;
 
