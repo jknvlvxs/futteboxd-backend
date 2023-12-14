@@ -1,0 +1,742 @@
+{
+  "api": {
+    "results": 125,
+    "teams": [
+      {
+        "team_id": "529",
+        "name": "Barcelona",
+        "code": "BAR",
+        "logo": "https://media-1.api-sports.io/football/teams/529.png"
+      },
+      {
+        "team_id": "530",
+        "name": "Atletico Madrid",
+        "code": "MAD",
+        "logo": "https://media-1.api-sports.io/football/teams/530.png"
+      },
+      {
+        "team_id": "531",
+        "name": "Athletic Club",
+        "code": "BIL",
+        "logo": "https://media-1.api-sports.io/football/teams/531.png"
+      },
+      {
+        "team_id": "532",
+        "name": "Valencia",
+        "code": "VAL",
+        "logo": "https://media-1.api-sports.io/football/teams/532.png"
+      },
+      {
+        "team_id": "533",
+        "name": "Villarreal",
+        "code": "VIL",
+        "logo": "https://media-1.api-sports.io/football/teams/533.png"
+      },
+      {
+        "team_id": "534",
+        "name": "Las Palmas",
+        "code": "PAL",
+        "logo": "https://media-1.api-sports.io/football/teams/534.png"
+      },
+      {
+        "team_id": "535",
+        "name": "Malaga",
+        "code": "MAL",
+        "logo": "https://media-1.api-sports.io/football/teams/535.png"
+      },
+      {
+        "team_id": "536",
+        "name": "Sevilla",
+        "code": "SEV",
+        "logo": "https://media-1.api-sports.io/football/teams/536.png"
+      },
+      {
+        "team_id": "537",
+        "name": "Leganes",
+        "code": "LEG",
+        "logo": "https://media-1.api-sports.io/football/teams/537.png"
+      },
+      {
+        "team_id": "538",
+        "name": "Celta Vigo",
+        "code": "CEL",
+        "logo": "https://media-1.api-sports.io/football/teams/538.png"
+      },
+      {
+        "team_id": "539",
+        "name": "Levante",
+        "code": "LEV",
+        "logo": "https://media-1.api-sports.io/football/teams/539.png"
+      },
+      {
+        "team_id": "540",
+        "name": "Espanyol",
+        "code": "ESP",
+        "logo": "https://media-1.api-sports.io/football/teams/540.png"
+      },
+      {
+        "team_id": "541",
+        "name": "Real Madrid",
+        "code": "REA",
+        "logo": "https://media-1.api-sports.io/football/teams/541.png"
+      },
+      {
+        "team_id": "542",
+        "name": "Alaves",
+        "code": "ALA",
+        "logo": "https://media-1.api-sports.io/football/teams/542.png"
+      },
+      {
+        "team_id": "543",
+        "name": "Real Betis",
+        "code": "BET",
+        "logo": "https://media-1.api-sports.io/football/teams/543.png"
+      },
+      {
+        "team_id": "544",
+        "name": "Deportivo La Coruna",
+        "code": "COR",
+        "logo": "https://media-1.api-sports.io/football/teams/544.png"
+      },
+      {
+        "team_id": "545",
+        "name": "Eibar",
+        "code": "EIB",
+        "logo": "https://media-1.api-sports.io/football/teams/545.png"
+      },
+      {
+        "team_id": "546",
+        "name": "Getafe",
+        "code": "GET",
+        "logo": "https://media-1.api-sports.io/football/teams/546.png"
+      },
+      {
+        "team_id": "547",
+        "name": "Girona",
+        "code": "GIR",
+        "logo": "https://media-1.api-sports.io/football/teams/547.png"
+      },
+      {
+        "team_id": "548",
+        "name": "Real Sociedad",
+        "code": "RSO",
+        "logo": "https://media-1.api-sports.io/football/teams/548.png"
+      },
+      {
+        "team_id": "593",
+        "name": "Europa Fc",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/593.png"
+      },
+      {
+        "team_id": "711",
+        "name": "Alcorcon",
+        "code": "ALC",
+        "logo": "https://media-1.api-sports.io/football/teams/711.png"
+      },
+      {
+        "team_id": "714",
+        "name": "Gimnastic",
+        "code": "GIM",
+        "logo": "https://media-1.api-sports.io/football/teams/714.png"
+      },
+      {
+        "team_id": "715",
+        "name": "Granada CF",
+        "code": "GRA",
+        "logo": "https://media-1.api-sports.io/football/teams/715.png"
+      },
+      {
+        "team_id": "716",
+        "name": "Lugo",
+        "code": "LUG",
+        "logo": "https://media-1.api-sports.io/football/teams/716.png"
+      },
+      {
+        "team_id": "718",
+        "name": "Oviedo",
+        "code": "OVI",
+        "logo": "https://media-1.api-sports.io/football/teams/718.png"
+      },
+      {
+        "team_id": "719",
+        "name": "Tenerife",
+        "code": "TEN",
+        "logo": "https://media-1.api-sports.io/football/teams/719.png"
+      },
+      {
+        "team_id": "720",
+        "name": "Valladolid",
+        "code": "VAL",
+        "logo": "https://media-1.api-sports.io/football/teams/720.png"
+      },
+      {
+        "team_id": "722",
+        "name": "Albacete",
+        "code": "ALB",
+        "logo": "https://media-1.api-sports.io/football/teams/722.png"
+      },
+      {
+        "team_id": "723",
+        "name": "Almeria",
+        "code": "ALM",
+        "logo": "https://media-1.api-sports.io/football/teams/723.png"
+      },
+      {
+        "team_id": "724",
+        "name": "Cadiz",
+        "code": "CAD",
+        "logo": "https://media-1.api-sports.io/football/teams/724.png"
+      },
+      {
+        "team_id": "726",
+        "name": "Huesca",
+        "code": "HUE",
+        "logo": "https://media-1.api-sports.io/football/teams/726.png"
+      },
+      {
+        "team_id": "727",
+        "name": "Osasuna",
+        "code": "OSA",
+        "logo": "https://media-1.api-sports.io/football/teams/727.png"
+      },
+      {
+        "team_id": "728",
+        "name": "Rayo Vallecano",
+        "code": "RAY",
+        "logo": "https://media-1.api-sports.io/football/teams/728.png"
+      },
+      {
+        "team_id": "731",
+        "name": "Sporting Gijon",
+        "code": "GIJ",
+        "logo": "https://media-1.api-sports.io/football/teams/731.png"
+      },
+      {
+        "team_id": "732",
+        "name": "Zaragoza",
+        "code": "ZAR",
+        "logo": "https://media-1.api-sports.io/football/teams/732.png"
+      },
+      {
+        "team_id": "797",
+        "name": "Elche",
+        "code": "ELC",
+        "logo": "https://media-1.api-sports.io/football/teams/797.png"
+      },
+      {
+        "team_id": "798",
+        "name": "Mallorca",
+        "code": "MAL",
+        "logo": "https://media-1.api-sports.io/football/teams/798.png"
+      },
+      {
+        "team_id": "799",
+        "name": "Mirandes",
+        "code": "MIR",
+        "logo": "https://media-1.api-sports.io/football/teams/799.png"
+      },
+      {
+        "team_id": "800",
+        "name": "Ucam Murcia",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/800.png"
+      },
+      {
+        "team_id": "4665",
+        "name": "Racing Santander",
+        "code": "SAN",
+        "logo": "https://media-1.api-sports.io/football/teams/4665.png"
+      },
+      {
+        "team_id": "4666",
+        "name": "H\u00e9rcules",
+        "code": "HER",
+        "logo": "https://media-1.api-sports.io/football/teams/4666.png"
+      },
+      {
+        "team_id": "4907",
+        "name": "Ponferradina",
+        "code": "PON",
+        "logo": "https://media-1.api-sports.io/football/teams/4907.png"
+      },
+      {
+        "team_id": "5250",
+        "name": "Badalona",
+        "code": "BAD",
+        "logo": "https://media-1.api-sports.io/football/teams/5250.png"
+      },
+      {
+        "team_id": "5251",
+        "name": "Barakaldo",
+        "code": "BAR",
+        "logo": "https://media-1.api-sports.io/football/teams/5251.png"
+      },
+      {
+        "team_id": "5253",
+        "name": "CF Talavera",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5253.png"
+      },
+      {
+        "team_id": "5254",
+        "name": "Castell\u00f3n",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5254.png"
+      },
+      {
+        "team_id": "5256",
+        "name": "Compostela",
+        "code": "COM",
+        "logo": "https://media-1.api-sports.io/football/teams/5256.png"
+      },
+      {
+        "team_id": "5262",
+        "name": "FC Cartagena",
+        "code": "CAR",
+        "logo": "https://media-1.api-sports.io/football/teams/5262.png"
+      },
+      {
+        "team_id": "5263",
+        "name": "Gernika",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5263.png"
+      },
+      {
+        "team_id": "5267",
+        "name": "Marbella",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5267.png"
+      },
+      {
+        "team_id": "5268",
+        "name": "Melilla",
+        "code": "MEL",
+        "logo": "https://media-1.api-sports.io/football/teams/5268.png"
+      },
+      {
+        "team_id": "5269",
+        "name": "Mensajero",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5269.png"
+      },
+      {
+        "team_id": "5271",
+        "name": "Navalcarnero",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5271.png"
+      },
+      {
+        "team_id": "5274",
+        "name": "Real Ja\u00e9n",
+        "code": "JAE",
+        "logo": "https://media-1.api-sports.io/football/teams/5274.png"
+      },
+      {
+        "team_id": "5275",
+        "name": "Real Murcia",
+        "code": "MUR",
+        "logo": "https://media-1.api-sports.io/football/teams/5275.png"
+      },
+      {
+        "team_id": "5278",
+        "name": "Teruel",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5278.png"
+      },
+      {
+        "team_id": "5279",
+        "name": "Tudelano",
+        "code": "TUD",
+        "logo": "https://media-1.api-sports.io/football/teams/5279.png"
+      },
+      {
+        "team_id": "5280",
+        "name": "UD Logro\u00f1\u00e9s",
+        "code": "LOG",
+        "logo": "https://media-1.api-sports.io/football/teams/5280.png"
+      },
+      {
+        "team_id": "5281",
+        "name": "Unionistas de Salamanca",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5281.png"
+      },
+      {
+        "team_id": "5282",
+        "name": "Villanovense",
+        "code": "VIL",
+        "logo": "https://media-1.api-sports.io/football/teams/5282.png"
+      },
+      {
+        "team_id": "5283",
+        "name": "Yeclano",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/5283.png"
+      },
+      {
+        "team_id": "7522",
+        "name": "Antoniano",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/7522.png"
+      },
+      {
+        "team_id": "7524",
+        "name": "Melilla CD",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/7524.png"
+      },
+      {
+        "team_id": "8151",
+        "name": "Andratx",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/8151.png"
+      },
+      {
+        "team_id": "8157",
+        "name": "FC Andorra",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/8157.png"
+      },
+      {
+        "team_id": "9380",
+        "name": "Amorebieta",
+        "code": "AMO",
+        "logo": "https://media-1.api-sports.io/football/teams/9380.png"
+      },
+      {
+        "team_id": "9384",
+        "name": "Cacere\u00f1o",
+        "code": "CAC",
+        "logo": "https://media-1.api-sports.io/football/teams/9384.png"
+      },
+      {
+        "team_id": "9387",
+        "name": "Gimn\u00e1stica Segoviana",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9387.png"
+      },
+      {
+        "team_id": "9388",
+        "name": "Guijuelo",
+        "code": "GUI",
+        "logo": "https://media-1.api-sports.io/football/teams/9388.png"
+      },
+      {
+        "team_id": "9390",
+        "name": "Ibiza",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9390.png"
+      },
+      {
+        "team_id": "9398",
+        "name": "Linares Deportivo",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9398.png"
+      },
+      {
+        "team_id": "9400",
+        "name": "Lorca Deportiva",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9400.png"
+      },
+      {
+        "team_id": "9404",
+        "name": "Orihuela",
+        "code": "ORI",
+        "logo": "https://media-1.api-sports.io/football/teams/9404.png"
+      },
+      {
+        "team_id": "9405",
+        "name": "Pe\u00f1a Deportiva",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9405.png"
+      },
+      {
+        "team_id": "9409",
+        "name": "Racing Ferrol",
+        "code": "FER",
+        "logo": "https://media-1.api-sports.io/football/teams/9409.png"
+      },
+      {
+        "team_id": "9410",
+        "name": "Recreativo Huelva",
+        "code": "REC",
+        "logo": "https://media-1.api-sports.io/football/teams/9410.png"
+      },
+      {
+        "team_id": "9413",
+        "name": "Sestao River",
+        "code": "SES",
+        "logo": "https://media-1.api-sports.io/football/teams/9413.png"
+      },
+      {
+        "team_id": "9416",
+        "name": "Tarazona",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9416.png"
+      },
+      {
+        "team_id": "9418",
+        "name": "Zamora",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9418.png"
+      },
+      {
+        "team_id": "9580",
+        "name": "Burgos",
+        "code": "BUR",
+        "logo": "https://media-1.api-sports.io/football/teams/9580.png"
+      },
+      {
+        "team_id": "9601",
+        "name": "Sanluque\u00f1o",
+        "code": "SAN",
+        "logo": "https://media-1.api-sports.io/football/teams/9601.png"
+      },
+      {
+        "team_id": "9604",
+        "name": "Arenteiro",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9604.png"
+      },
+      {
+        "team_id": "9605",
+        "name": "Arosa",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9605.png"
+      },
+      {
+        "team_id": "9623",
+        "name": "Covadonga",
+        "code": "VAD",
+        "logo": "https://media-1.api-sports.io/football/teams/9623.png"
+      },
+      {
+        "team_id": "9632",
+        "name": "Real Avil\u00e9s",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9632.png"
+      },
+      {
+        "team_id": "9664",
+        "name": "Santurtzi",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9664.png"
+      },
+      {
+        "team_id": "9675",
+        "name": "Manresa",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9675.png"
+      },
+      {
+        "team_id": "9681",
+        "name": "Terrassa",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9681.png"
+      },
+      {
+        "team_id": "9688",
+        "name": "Atzeneta",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9688.png"
+      },
+      {
+        "team_id": "9692",
+        "name": "Eldense",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9692.png"
+      },
+      {
+        "team_id": "9722",
+        "name": "Arandina",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9722.png"
+      },
+      {
+        "team_id": "9723",
+        "name": "Atl\u00e9tico Astorga",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9723.png"
+      },
+      {
+        "team_id": "9742",
+        "name": "Antequera",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9742.png"
+      },
+      {
+        "team_id": "9767",
+        "name": "San Roque Lepe",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9767.png"
+      },
+      {
+        "team_id": "9784",
+        "name": "Manacor",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9784.png"
+      },
+      {
+        "team_id": "9823",
+        "name": "\u00c1guilas",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9823.png"
+      },
+      {
+        "team_id": "9826",
+        "name": "Azuaga",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9826.png"
+      },
+      {
+        "team_id": "9833",
+        "name": "Llerenense",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9833.png"
+      },
+      {
+        "team_id": "9858",
+        "name": "Valle Eg\u00fc\u00e9s",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9858.png"
+      },
+      {
+        "team_id": "9868",
+        "name": "N\u00e1xara",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9868.png"
+      },
+      {
+        "team_id": "9870",
+        "name": "Pradej\u00f3n",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9870.png"
+      },
+      {
+        "team_id": "9873",
+        "name": "Varea",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9873.png"
+      },
+      {
+        "team_id": "9879",
+        "name": "Barbastro",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9879.png"
+      },
+      {
+        "team_id": "9891",
+        "name": "Utebo",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9891.png"
+      },
+      {
+        "team_id": "9905",
+        "name": "Manchego",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/9905.png"
+      },
+      {
+        "team_id": "15339",
+        "name": "Cay\u00f3n",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/15339.png"
+      },
+      {
+        "team_id": "15524",
+        "name": "Bu\u00f1ol",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/15524.png"
+      },
+      {
+        "team_id": "17591",
+        "name": "Ursaria",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/17591.png"
+      },
+      {
+        "team_id": "17600",
+        "name": "Rotlet Molinar",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/17600.png"
+      },
+      {
+        "team_id": "18090",
+        "name": "Ceuta 6 de Junio",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/18090.png"
+      },
+      {
+        "team_id": "20440",
+        "name": "Atl\u00e9tico Lugones",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/20440.png"
+      },
+      {
+        "team_id": "20449",
+        "name": "Tur\u00e9gano",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/20449.png"
+      },
+      {
+        "team_id": "21905",
+        "name": "Chiclana",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/21905.png"
+      },
+      {
+        "team_id": "22566",
+        "name": "Boiro",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/22566.png"
+      },
+      {
+        "team_id": "22567",
+        "name": "Deportivo Murcia",
+        "code": "",
+        "logo": ""
+      },
+      {
+        "team_id": "22568",
+        "name": "Hern\u00e1n Cort\u00e9s",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/22568.png"
+      },
+      {
+        "team_id": "22569",
+        "name": "Mijas Las Lagunas",
+        "code": "",
+        "logo": ""
+      },
+      {
+        "team_id": "22570",
+        "name": "Monte",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/22570.png"
+      },
+      {
+        "team_id": "22571",
+        "name": "Quintanar",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/22571.png"
+      },
+      {
+        "team_id": "22572",
+        "name": "Rub\u00ed",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/22572.png"
+      },
+      { "team_id": "22573", "name": "Sauzal", "code": "", "logo": "" },
+      { "team_id": "22574", "name": "Tardienta", "code": "", "logo": "" },
+      {
+        "team_id": "22575",
+        "name": "Uni\u00f3n Zona Norte",
+        "code": "",
+        "logo": ""
+      },
+      { "team_id": "22576", "name": "Zirauki", "code": "", "logo": "" }
+    ]
+  }
+}
