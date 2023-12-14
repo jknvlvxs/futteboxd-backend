@@ -4,6 +4,7 @@ import { UpdateFixtureDto } from './dto/update-fixture.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Fixture } from './entities/fixture.entity';
 import { Repository } from 'typeorm';
+import * as moment from 'moment';
 
 @Injectable()
 export class FixturesService {
@@ -21,7 +22,18 @@ export class FixturesService {
         `Fixture with id ${createFixtureDto.fixture_id} already exists`,
       );
 
-    const fixture = this.repository.create(createFixtureDto);
+    const fixture = this.repository.create({
+      ...createFixtureDto,
+      event_timestamp: moment(
+        parseInt(createFixtureDto.event_timestamp.toString()) * 1000,
+      ),
+      firstHalfStart: moment(
+        parseInt(createFixtureDto.firstHalfStart.toString()) * 1000,
+      ),
+      secondHalfStart: moment(
+        parseInt(createFixtureDto.secondHalfStart.toString()) * 1000,
+      ),
+    });
 
     return this.repository.save(fixture);
   }

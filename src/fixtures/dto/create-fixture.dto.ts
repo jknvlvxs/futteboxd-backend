@@ -1,9 +1,9 @@
-import { Transform } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import {
   IsDate,
   IsNotEmpty,
   IsNumber,
-  IsRFC3339,
+  IsOptional,
   IsString,
 } from 'class-validator';
 import * as moment from 'moment';
@@ -14,8 +14,9 @@ export class CreateFixtureDto {
   @IsNotEmpty()
   fixture_id: number;
 
-  @IsRFC3339()
   @IsNotEmpty()
+  @Type(() => Date)
+  @Transform(({ value }) => moment(value), { toClassOnly: true })
   event_timestamp: Date;
 
   @IsDate()
@@ -60,21 +61,23 @@ export class CreateFixtureDto {
   @IsString()
   statusShort: string;
 
-  @Transform((e) => parseInt(e.value))
-  @IsNumber()
+  @Transform((e) => e && parseInt(e.value))
+  @IsNumber({ allowNaN: true })
+  @IsOptional()
   @IsNotEmpty()
   goalsHomeTeam: number;
 
-  @Transform((e) => parseInt(e.value))
-  @IsNumber()
+  @Transform((e) => e && parseInt(e.value))
+  @IsNumber({ allowNaN: true })
+  @IsOptional()
   @IsNotEmpty()
   goalsAwayTeam: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   halftime_score: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   final_score: string;
 
@@ -87,11 +90,13 @@ export class CreateFixtureDto {
   @IsNotEmpty()
   elapsed: number;
 
-  @IsRFC3339()
   @IsNotEmpty()
+  @Type(() => Date)
+  @Transform(({ value }) => moment(value), { toClassOnly: true })
   firstHalfStart: Date;
 
-  @IsRFC3339()
   @IsNotEmpty()
+  @Type(() => Date)
+  @Transform(({ value }) => moment(value), { toClassOnly: true })
   secondHalfStart: Date;
 }

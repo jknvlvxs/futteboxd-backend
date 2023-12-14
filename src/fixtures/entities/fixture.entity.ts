@@ -16,7 +16,7 @@ export class Fixture extends BaseEntity {
   @Column({ unique: true, nullable: false, primary: true })
   fixture_id: number;
 
-  @Column({ type: 'timestamptz', nullable: false })
+  @Column({ nullable: false })
   event_timestamp: Date;
 
   @Column({ nullable: false })
@@ -43,16 +43,16 @@ export class Fixture extends BaseEntity {
   @Column({ nullable: false })
   statusShort: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   goalsHomeTeam: number;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   goalsAwayTeam: number;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   halftime_score: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   final_score: string;
 
   @Column({ nullable: false })
@@ -61,10 +61,10 @@ export class Fixture extends BaseEntity {
   @Column({ nullable: false })
   elapsed: number;
 
-  @Column({ type: 'timestamptz', nullable: false })
+  @Column({ nullable: false })
   firstHalfStart: Date;
 
-  @Column({ type: 'timestamptz', nullable: false })
+  @Column({ nullable: false })
   secondHalfStart: Date;
 
   @CreateDateColumn()
