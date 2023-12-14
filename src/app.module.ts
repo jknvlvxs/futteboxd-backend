@@ -10,6 +10,7 @@ import { ReviewsModule } from './reviews/reviews.module';
 import { FollowsModule } from './follows/follows.module';
 import { LeaguesModule } from './leagues/leagues.module';
 import { CountriesModule } from './countries/countries.module';
+import { TeamsModule } from './teams/teams.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { CountriesModule } from './countries/countries.module';
     FollowsModule,
     LeaguesModule,
     CountriesModule,
+    TeamsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
