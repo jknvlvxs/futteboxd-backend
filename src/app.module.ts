@@ -8,6 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ReviewsModule } from './reviews/reviews.module';
 import { FollowsModule } from './follows/follows.module';
+import { LeaguesModule } from './leagues/leagues.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { FollowsModule } from './follows/follows.module';
     }),
     ReviewsModule,
     FollowsModule,
+    LeaguesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
