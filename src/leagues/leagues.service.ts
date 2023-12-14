@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateLeagueDto } from './dto/create-league.dto';
 import { UpdateLeagueDto } from './dto/update-league.dto';
@@ -11,7 +15,16 @@ export class LeaguesService {
     @InjectRepository(League) private readonly repository: Repository<League>,
   ) {}
 
-  create(createLeagueDto: CreateLeagueDto) {
+  async create(createLeagueDto: CreateLeagueDto) {
+    const leagueExists = await this.repository.findOne({
+      where: { league_id: createLeagueDto.league_id },
+    });
+
+    if (leagueExists)
+      throw new ConflictException(
+        `League with id ${createLeagueDto.league_id} already exists`,
+      );
+
     const create = this.repository.create(createLeagueDto);
     return this.repository.save(create);
   }
