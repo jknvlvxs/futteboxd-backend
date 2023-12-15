@@ -5,11 +5,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Fixture } from './entities/fixture.entity';
 import { Repository } from 'typeorm';
 import * as moment from 'moment';
+import { TeamsService } from 'src/teams/teams.service';
 
 @Injectable()
 export class FixturesService {
   constructor(
     @InjectRepository(Fixture) private readonly repository: Repository<Fixture>,
+    private readonly teamRepository: TeamsService,
   ) {}
 
   async create(createFixtureDto: CreateFixtureDto) {
@@ -49,6 +51,35 @@ export class FixturesService {
       throw new ConflictException(`Fixture with id ${id} does not exist`);
 
     return fixture;
+  }
+
+  async findByLeagueId(id: number) {
+    const fixtures = await this.repository.find({
+      where: { league_id: id },
+      order: { round: 'ASC', event_date: 'ASC', homeTeam: 'ASC' },
+    });
+
+    if (!fixtures)
+      throw new ConflictException(
+        `Fixtures with league id ${id} does not exist`,
+      );
+
+    return Promise.all(
+      fixtures.map(async (fixture) => {
+        const homeTeam = await this.teamRepository.findByTeamId(
+          fixture.homeTeam_id,
+        );
+        const awayTeam = await this.teamRepository.findByTeamId(
+          fixture.awayTeam_id,
+        );
+
+        return {
+          ...fixture,
+          homeTeam: homeTeam ? homeTeam : fixture.homeTeam,
+          awayTeam: awayTeam ? awayTeam : fixture.awayTeam,
+        };
+      }),
+    );
   }
 
   async update(id: string, updateFixtureDto: UpdateFixtureDto) {

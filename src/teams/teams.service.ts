@@ -41,6 +41,14 @@ export class TeamsService {
     return team;
   }
 
+  async findByTeamId(id: number) {
+    const team = await this.repository.findOne({ where: { team_id: id } });
+
+    if (!team) return null;
+
+    return team;
+  }
+
   async update(id: string, updateTeamDto: UpdateTeamDto) {
     const team = await this.repository.findOne({ where: { id } });
 

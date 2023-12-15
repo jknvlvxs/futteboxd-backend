@@ -8,11 +8,13 @@ import { CreateLeagueDto } from './dto/create-league.dto';
 import { UpdateLeagueDto } from './dto/update-league.dto';
 import { League } from './entities/league.entity';
 import { Repository } from 'typeorm';
+import { FixturesService } from 'src/fixtures/fixtures.service';
 
 @Injectable()
 export class LeaguesService {
   constructor(
     @InjectRepository(League) private readonly repository: Repository<League>,
+    private readonly fixturesService: FixturesService,
   ) {}
 
   async create(createLeagueDto: CreateLeagueDto) {
@@ -38,7 +40,10 @@ export class LeaguesService {
 
     if (!league) throw new NotFoundException(`League with id ${id} not found`);
 
-    return league;
+    // const scores = await this.fixturesService.findByLeagueId(league.league_id);
+    const scores = await this.fixturesService.findByLeagueId(357);
+
+    return { ...league, scores };
   }
 
   async findLeagues(country: string, season: number) {

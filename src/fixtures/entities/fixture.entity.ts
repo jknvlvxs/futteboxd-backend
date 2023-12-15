@@ -25,6 +25,9 @@ export class Fixture extends BaseEntity {
   @Column({ nullable: false })
   league_id: number;
 
+  @Column({ nullable: true })
+  round: string;
+
   @Column({ nullable: false })
   homeTeam_id: number;
 

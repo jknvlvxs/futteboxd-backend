@@ -1,11 +1,12 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { FixturesService } from './fixtures.service';
 import { FixturesController } from './fixtures.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Fixture } from './entities/fixture.entity';
+import { TeamsModule } from 'src/teams/teams.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Fixture])],
+  imports: [TypeOrmModule.forFeature([Fixture]), forwardRef(() => TeamsModule)],
   controllers: [FixturesController],
   providers: [FixturesService],
   exports: [FixturesService],
