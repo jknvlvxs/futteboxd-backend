@@ -25,6 +25,11 @@ export class FixturesController {
     return this.fixturesService.findAll();
   }
 
+  @Get('live')
+  findLive() {
+    return this.fixturesService.findLive();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.fixturesService.findOne(id);

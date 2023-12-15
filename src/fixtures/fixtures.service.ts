@@ -1,11 +1,12 @@
 import { ConflictException, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as moment from 'moment';
+import 'moment-timezone';
+import { TeamsService } from 'src/teams/teams.service';
+import { Between, In, Repository } from 'typeorm';
 import { CreateFixtureDto } from './dto/create-fixture.dto';
 import { UpdateFixtureDto } from './dto/update-fixture.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Fixture } from './entities/fixture.entity';
-import { Repository } from 'typeorm';
-import * as moment from 'moment';
-import { TeamsService } from 'src/teams/teams.service';
 
 @Injectable()
 export class FixturesService {
@@ -53,6 +54,33 @@ export class FixturesService {
     return fixture;
   }
 
+  async findLive() {
+    const startOfDay = moment().tz('America/Sao_Paulo').startOf('day').toDate();
+    const endOfDay = moment().tz('America/Sao_Paulo').endOf('day').toDate();
+
+    const [liveFixtures, todayFixtures] = await Promise.all([
+      this.repository.find({
+        where: {
+          statusShort: In(['1H', 'HT', '2H', 'ET', 'BT', 'P', 'SUSP', 'INT']),
+        },
+        order: { event_timestamp: 'ASC' },
+      }),
+      this.repository.find({
+        where: {
+          event_date: Between(startOfDay, endOfDay),
+        },
+        order: { event_timestamp: 'ASC' },
+      }),
+    ]);
+
+    const [live, today] = await Promise.all([
+      this.getTeamsByFixtures(liveFixtures),
+      this.getTeamsByFixtures(todayFixtures),
+    ]);
+
+    return { live, today };
+  }
+
   async findByLeagueId(id: number) {
     const fixtures = await this.repository.find({
       where: { league_id: id },
@@ -61,22 +89,7 @@ export class FixturesService {
 
     if (!fixtures) return [];
 
-    return Promise.all(
-      fixtures.map(async (fixture) => {
-        const homeTeam = await this.teamRepository.findByTeamId(
-          fixture.homeTeam_id,
-        );
-        const awayTeam = await this.teamRepository.findByTeamId(
-          fixture.awayTeam_id,
-        );
-
-        return {
-          ...fixture,
-          homeTeam: homeTeam ? homeTeam : fixture.homeTeam,
-          awayTeam: awayTeam ? awayTeam : fixture.awayTeam,
-        };
-      }),
-    );
+    return this.getTeamsByFixtures(fixtures);
   }
 
   async update(id: string, updateFixtureDto: UpdateFixtureDto) {
@@ -100,5 +113,24 @@ export class FixturesService {
       throw new ConflictException(`Fixture with id ${id} does not exist`);
 
     return this.repository.delete(fixture.id);
+  }
+
+  async getTeamsByFixtures(fixtures: Fixture[]) {
+    return Promise.all(
+      fixtures.map(async (fixture) => {
+        const homeTeam = await this.teamRepository.findByTeamId(
+          fixture.homeTeam_id,
+        );
+        const awayTeam = await this.teamRepository.findByTeamId(
+          fixture.awayTeam_id,
+        );
+
+        return {
+          ...fixture,
+          homeTeam: homeTeam ? homeTeam : fixture.homeTeam,
+          awayTeam: awayTeam ? awayTeam : fixture.awayTeam,
+        } as Fixture;
+      }),
+    );
   }
 }
