@@ -40,8 +40,7 @@ export class LeaguesService {
 
     if (!league) throw new NotFoundException(`League with id ${id} not found`);
 
-    // const scores = await this.fixturesService.findByLeagueId(league.league_id);
-    const scores = await this.fixturesService.findByLeagueId(357);
+    const scores = await this.fixturesService.findByLeagueId(league.league_id);
 
     return { ...league, scores };
   }

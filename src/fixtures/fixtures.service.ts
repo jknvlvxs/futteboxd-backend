@@ -59,10 +59,7 @@ export class FixturesService {
       order: { round: 'ASC', event_date: 'ASC', homeTeam: 'ASC' },
     });
 
-    if (!fixtures)
-      throw new ConflictException(
-        `Fixtures with league id ${id} does not exist`,
-      );
+    if (!fixtures) return [];
 
     return Promise.all(
       fixtures.map(async (fixture) => {
