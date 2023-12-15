@@ -45,6 +45,14 @@ export class LeaguesService {
     return { ...league, scores };
   }
 
+  async findByLeagueId(league_id: number) {
+    const league = await this.repository.findOne({ where: { league_id } });
+
+    if (!league) return null;
+
+    return league;
+  }
+
   async findLeagues(country: string, season: number) {
     const leagues = await this.repository.find({
       where: { country, season },

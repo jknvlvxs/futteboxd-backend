@@ -1,4 +1,9 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Inject,
+  Injectable,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as moment from 'moment';
 import 'moment-timezone';
@@ -7,12 +12,16 @@ import { Between, In, Repository } from 'typeorm';
 import { CreateFixtureDto } from './dto/create-fixture.dto';
 import { UpdateFixtureDto } from './dto/update-fixture.dto';
 import { Fixture } from './entities/fixture.entity';
+import { LeaguesService } from 'src/leagues/leagues.service';
 
 @Injectable()
 export class FixturesService {
   constructor(
     @InjectRepository(Fixture) private readonly repository: Repository<Fixture>,
+    @Inject(forwardRef(() => TeamsService))
     private readonly teamRepository: TeamsService,
+    @Inject(forwardRef(() => LeaguesService))
+    private readonly leagueRepository: LeaguesService,
   ) {}
 
   async create(createFixtureDto: CreateFixtureDto) {
@@ -46,12 +55,18 @@ export class FixturesService {
   }
 
   async findOne(id: string) {
-    const fixture = this.repository.findOne({ where: { id: id } });
+    const fixture = await this.repository.findOne({ where: { id: id } });
 
     if (!fixture)
       throw new ConflictException(`Fixture with id ${id} does not exist`);
 
-    return fixture;
+    const league = await this.leagueRepository.findByLeagueId(
+      fixture.league_id,
+    );
+
+    const result = await this.getTeamsByFixtures([fixture]);
+
+    return { ...result[0], league };
   }
 
   async findLive() {
