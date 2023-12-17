@@ -1,19 +1,28 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  NotFoundException,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { Review } from './entities/review.entity';
+import { ProfileService } from 'src/profile/profile.service';
 
 @Injectable()
 export class ReviewsService {
   constructor(
     @InjectRepository(Review)
     private readonly repository: Repository<Review>,
+    @Inject(forwardRef(() => ProfileService))
+    private readonly profileService: ProfileService,
   ) {}
 
-  create(createReviewDto: CreateReviewDto) {
-    const create = this.repository.create(createReviewDto);
+  async create(user: string, createReviewDto: CreateReviewDto) {
+    const profile = await this.profileService.findByUserId(user);
+    const create = this.repository.create({ ...createReviewDto, profile });
     return this.repository.save(create);
   }
 

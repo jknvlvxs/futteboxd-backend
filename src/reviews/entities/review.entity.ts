@@ -23,14 +23,14 @@ export class Review extends BaseEntity {
   @Column()
   favorite: boolean;
 
-  @Column()
+  @Column({ type: 'decimal', precision: 2, scale: 1 })
   rating: number;
 
-  @ManyToOne(() => Profile)
+  @ManyToOne(() => Profile, { eager: true })
   @Transform(({ value }) => value.id)
   profile: Profile;
 
-  @ManyToOne(() => Fixture)
+  @ManyToOne(() => Fixture, { eager: true })
   @Transform(({ value }) => value.id)
   fixture: Fixture;
 

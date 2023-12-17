@@ -29,6 +29,11 @@ export class AuthService {
   }
 
   async login(username: string, password: string) {
+    if (!username || !password)
+      throw new UnauthorizedException(
+        'Login inválido. Verifique os dados de nome de usuário e senha e tente novamente',
+      );
+
     const user = await this.validateUser(username, password);
     if (!user)
       throw new UnauthorizedException(

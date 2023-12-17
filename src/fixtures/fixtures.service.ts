@@ -92,7 +92,7 @@ export class FixturesService {
       }),
     ]);
 
-    return { liveFixtures, todayFixtures };
+    return { live: liveFixtures, today: todayFixtures };
   }
 
   async findByLeagueId(id: number) {

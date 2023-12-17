@@ -1,6 +1,5 @@
-import { IsNotEmpty, Length } from 'class-validator';
+import { IsNotEmpty, IsNumber, Max, Min } from 'class-validator';
 import { Fixture } from 'src/fixtures/entities/fixture.entity';
-import { Profile } from 'src/profile/entities/profile.entity';
 
 export class CreateReviewDto {
   @IsNotEmpty()
@@ -9,12 +8,11 @@ export class CreateReviewDto {
   @IsNotEmpty()
   favorite: boolean;
 
+  @Min(0)
+  @Max(5)
   @IsNotEmpty()
-  @Length(1, 10)
+  @IsNumber({ maxDecimalPlaces: 1 })
   rating: number;
-
-  @IsNotEmpty()
-  profile: Profile;
 
   @IsNotEmpty()
   fixture: Fixture;
