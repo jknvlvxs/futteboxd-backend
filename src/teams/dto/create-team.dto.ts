@@ -27,6 +27,6 @@ export class CreateTeamDto {
 
   @IsString()
   @IsUrl()
-  @IsNotEmpty()
+  @IsOptional()
   logo: string;
 }

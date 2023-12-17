@@ -1,9 +1,13 @@
+import { Transform } from 'class-transformer';
+import { League } from 'src/leagues/entities/league.entity';
+import { Team } from 'src/teams/entities/team.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,7 +17,7 @@ export class Fixture extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true, nullable: false, primary: true })
+  @Column({ unique: true, nullable: false })
   fixture_id: number;
 
   @Column({ nullable: false })
@@ -25,6 +29,10 @@ export class Fixture extends BaseEntity {
   @Column({ nullable: false })
   league_id: number;
 
+  @ManyToOne(() => League, { eager: true, cascade: true, persistence: true })
+  @Transform(({ value }) => value.id)
+  league: League;
+
   @Column({ nullable: true })
   round: string;
 
@@ -34,11 +42,13 @@ export class Fixture extends BaseEntity {
   @Column({ nullable: false })
   awayTeam_id: number;
 
-  @Column({ nullable: false })
-  homeTeam: string;
+  @ManyToOne(() => Team, { eager: true, cascade: true, persistence: true })
+  @Transform(({ value }) => value.id)
+  homeTeam: Team;
 
-  @Column({ nullable: false })
-  awayTeam: string;
+  @ManyToOne(() => Team, { eager: true, cascade: true, persistence: true })
+  @Transform(({ value }) => value.id)
+  awayTeam: Team;
 
   @Column({ nullable: false })
   status: string;

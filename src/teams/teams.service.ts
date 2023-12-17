@@ -1,13 +1,9 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Team } from './entities/team.entity';
-import { Repository } from 'typeorm';
 
 @Injectable()
 export class TeamsService {
@@ -20,10 +16,7 @@ export class TeamsService {
       where: { team_id: createTeamDto.team_id },
     });
 
-    if (teamExists)
-      throw new ConflictException(
-        `Team with id ${createTeamDto.team_id} already exists`,
-      );
+    if (teamExists) return teamExists;
 
     const create = this.repository.create(createTeamDto);
     return this.repository.save(create);
@@ -68,5 +61,27 @@ export class TeamsService {
     if (!team) throw new NotFoundException(`Team with id ${id} not found`);
 
     return this.repository.softRemove(team);
+  }
+
+  async findOrCreateTeam(team: CreateTeamDto) {
+    const teamExists = await this.findByTeamId(team.team_id);
+
+    if (teamExists) return teamExists;
+
+    let code = team.name
+      .split(' ')
+      .map((word) => word[0])
+      .join('');
+
+    if (code.length > 3) code = code.substring(0, 3);
+    if (code.length < 3) code = team.name.substring(0, 3);
+
+    const create = this.repository.create({
+      team_id: team.team_id,
+      name: team.name,
+      code: code.toUpperCase(),
+    });
+
+    return this.repository.save(create);
   }
 }

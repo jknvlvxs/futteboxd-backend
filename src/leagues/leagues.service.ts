@@ -1,14 +1,10 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { FixturesService } from 'src/fixtures/fixtures.service';
+import { Repository } from 'typeorm';
 import { CreateLeagueDto } from './dto/create-league.dto';
 import { UpdateLeagueDto } from './dto/update-league.dto';
 import { League } from './entities/league.entity';
-import { Repository } from 'typeorm';
-import { FixturesService } from 'src/fixtures/fixtures.service';
 
 @Injectable()
 export class LeaguesService {
@@ -22,10 +18,7 @@ export class LeaguesService {
       where: { league_id: createLeagueDto.league_id },
     });
 
-    if (leagueExists)
-      throw new ConflictException(
-        `League with id ${createLeagueDto.league_id} already exists`,
-      );
+    if (leagueExists) return leagueExists;
 
     const create = this.repository.create(createLeagueDto);
     return this.repository.save(create);

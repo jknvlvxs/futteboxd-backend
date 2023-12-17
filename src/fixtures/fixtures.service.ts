@@ -1,18 +1,19 @@
 import {
-  ConflictException,
   Inject,
   Injectable,
+  NotFoundException,
   forwardRef,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as moment from 'moment';
 import 'moment-timezone';
+import { LeaguesService } from 'src/leagues/leagues.service';
+import { CreateTeamDto } from 'src/teams/dto/create-team.dto';
 import { TeamsService } from 'src/teams/teams.service';
 import { Between, In, Repository } from 'typeorm';
 import { CreateFixtureDto } from './dto/create-fixture.dto';
 import { UpdateFixtureDto } from './dto/update-fixture.dto';
 import { Fixture } from './entities/fixture.entity';
-import { LeaguesService } from 'src/leagues/leagues.service';
 
 @Injectable()
 export class FixturesService {
@@ -29,13 +30,18 @@ export class FixturesService {
       where: { fixture_id: createFixtureDto.fixture_id },
     });
 
-    if (fixtureExists)
-      throw new ConflictException(
-        `Fixture with id ${createFixtureDto.fixture_id} already exists`,
-      );
+    if (fixtureExists) return fixtureExists;
+
+    const teams = await this.findTeams(createFixtureDto);
+    const league = await this.leagueRepository.findByLeagueId(
+      createFixtureDto.league_id,
+    );
 
     const fixture = this.repository.create({
       ...createFixtureDto,
+      homeTeam: teams.homeTeam,
+      awayTeam: teams.awayTeam,
+      league,
       event_timestamp: moment(
         parseInt(createFixtureDto.event_timestamp.toString()) * 1000,
       ),
@@ -58,15 +64,13 @@ export class FixturesService {
     const fixture = await this.repository.findOne({ where: { id: id } });
 
     if (!fixture)
-      throw new ConflictException(`Fixture with id ${id} does not exist`);
+      throw new NotFoundException(`Fixture with id ${id} does not exist`);
 
     const league = await this.leagueRepository.findByLeagueId(
       fixture.league_id,
     );
 
-    const result = await this.getTeamsByFixtures([fixture]);
-
-    return { ...result[0], league };
+    return { ...fixture, league };
   }
 
   async findLive() {
@@ -88,12 +92,7 @@ export class FixturesService {
       }),
     ]);
 
-    const [live, today] = await Promise.all([
-      this.getTeamsByFixtures(liveFixtures),
-      this.getTeamsByFixtures(todayFixtures),
-    ]);
-
-    return { live, today };
+    return { liveFixtures, todayFixtures };
   }
 
   async findByLeagueId(id: number) {
@@ -104,18 +103,22 @@ export class FixturesService {
 
     if (!fixtures) return [];
 
-    return this.getTeamsByFixtures(fixtures);
+    return fixtures;
   }
 
   async update(id: string, updateFixtureDto: UpdateFixtureDto) {
     const fixture = await this.findOne(id);
 
     if (!fixture)
-      throw new ConflictException(`Fixture with id ${id} does not exist`);
+      throw new NotFoundException(`Fixture with id ${id} does not exist`);
+
+    const teams = await this.findTeams(updateFixtureDto);
 
     const preload = await this.repository.preload({
-      id: fixture.id,
       ...updateFixtureDto,
+      id: fixture.id,
+      homeTeam: teams.homeTeam,
+      awayTeam: teams.awayTeam,
     });
 
     return this.repository.save(preload);
@@ -125,27 +128,22 @@ export class FixturesService {
     const fixture = await this.findOne(id);
 
     if (!fixture)
-      throw new ConflictException(`Fixture with id ${id} does not exist`);
+      throw new NotFoundException(`Fixture with id ${id} does not exist`);
 
     return this.repository.delete(fixture.id);
   }
 
-  async getTeamsByFixtures(fixtures: Fixture[]) {
-    return Promise.all(
-      fixtures.map(async (fixture) => {
-        const homeTeam = await this.teamRepository.findByTeamId(
-          fixture.homeTeam_id,
-        );
-        const awayTeam = await this.teamRepository.findByTeamId(
-          fixture.awayTeam_id,
-        );
+  async findTeams(fixture: CreateFixtureDto | UpdateFixtureDto) {
+    const homeTeam = await this.teamRepository.findOrCreateTeam({
+      team_id: fixture.homeTeam_id,
+      name: fixture.homeTeam,
+    } as CreateTeamDto);
 
-        return {
-          ...fixture,
-          homeTeam: homeTeam ? homeTeam : fixture.homeTeam,
-          awayTeam: awayTeam ? awayTeam : fixture.awayTeam,
-        } as Fixture;
-      }),
-    );
+    const awayTeam = await this.teamRepository.findOrCreateTeam({
+      team_id: fixture.awayTeam_id,
+      name: fixture.awayTeam,
+    } as CreateTeamDto);
+
+    return { homeTeam, awayTeam };
   }
 }

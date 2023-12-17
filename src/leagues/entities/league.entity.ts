@@ -13,7 +13,7 @@ export class League extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true, nullable: false, primary: true })
+  @Column({ unique: true, nullable: false })
   league_id: number;
 
   @Column({ nullable: false })

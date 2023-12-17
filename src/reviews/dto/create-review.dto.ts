@@ -1,4 +1,5 @@
 import { IsNotEmpty, Length } from 'class-validator';
+import { Fixture } from 'src/fixtures/entities/fixture.entity';
 import { Profile } from 'src/profile/entities/profile.entity';
 
 export class CreateReviewDto {
@@ -14,4 +15,7 @@ export class CreateReviewDto {
 
   @IsNotEmpty()
   profile: Profile;
+
+  @IsNotEmpty()
+  fixture: Fixture;
 }

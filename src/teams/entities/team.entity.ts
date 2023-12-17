@@ -13,7 +13,7 @@ export class Team extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true, nullable: false, primary: true })
+  @Column({ unique: true, nullable: false })
   team_id: number;
 
   @Column({ nullable: false })
@@ -22,7 +22,7 @@ export class Team extends BaseEntity {
   @Column({ nullable: false })
   code: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   logo: string;
 
   @CreateDateColumn()

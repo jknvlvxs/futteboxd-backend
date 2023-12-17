@@ -1,4 +1,5 @@
 import { Transform } from 'class-transformer';
+import { Fixture } from 'src/fixtures/entities/fixture.entity';
 import { Profile } from 'src/profile/entities/profile.entity';
 import {
   BaseEntity,
@@ -28,6 +29,10 @@ export class Review extends BaseEntity {
   @ManyToOne(() => Profile)
   @Transform(({ value }) => value.id)
   profile: Profile;
+
+  @ManyToOne(() => Fixture)
+  @Transform(({ value }) => value.id)
+  fixture: Fixture;
 
   @CreateDateColumn()
   createdAt: Date;
