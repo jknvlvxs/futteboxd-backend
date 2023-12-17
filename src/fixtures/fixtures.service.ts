@@ -101,7 +101,7 @@ export class FixturesService {
   async findByLeagueId(id: number) {
     const fixtures = await this.repository.find({
       where: { league_id: id },
-      order: { round: 'ASC', event_date: 'ASC' },
+      order: { event_date: 'ASC', round: 'ASC' },
     });
 
     if (!fixtures) return [];
