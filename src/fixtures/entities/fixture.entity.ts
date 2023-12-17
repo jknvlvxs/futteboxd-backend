@@ -1,5 +1,6 @@
 import { Transform } from 'class-transformer';
 import { League } from 'src/leagues/entities/league.entity';
+import { Review } from 'src/reviews/entities/review.entity';
 import { Team } from 'src/teams/entities/team.entity';
 import {
   BaseEntity,
@@ -8,6 +9,7 @@ import {
   DeleteDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -79,6 +81,9 @@ export class Fixture extends BaseEntity {
 
   @Column({ nullable: false })
   secondHalfStart: Date;
+
+  @OneToMany(() => Review, (review) => review.fixture)
+  reviews: Review[];
 
   @CreateDateColumn()
   createdAt: Date;

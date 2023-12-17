@@ -61,7 +61,10 @@ export class FixturesService {
   }
 
   async findOne(id: string) {
-    const fixture = await this.repository.findOne({ where: { id: id } });
+    const fixture = await this.repository.findOne({
+      where: { id: id },
+      relations: ['reviews'],
+    });
 
     if (!fixture)
       throw new NotFoundException(`Fixture with id ${id} does not exist`);
@@ -98,7 +101,7 @@ export class FixturesService {
   async findByLeagueId(id: number) {
     const fixtures = await this.repository.find({
       where: { league_id: id },
-      order: { round: 'ASC', event_date: 'ASC', homeTeam: 'ASC' },
+      order: { round: 'ASC', event_date: 'ASC' },
     });
 
     if (!fixtures) return [];

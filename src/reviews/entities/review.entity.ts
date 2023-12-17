@@ -30,7 +30,7 @@ export class Review extends BaseEntity {
   @Transform(({ value }) => value.id)
   profile: Profile;
 
-  @ManyToOne(() => Fixture, { eager: true })
+  @ManyToOne(() => Fixture, (fixture) => fixture.reviews, { eager: true })
   @Transform(({ value }) => value.id)
   fixture: Fixture;
 
