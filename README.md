@@ -42,5 +42,5 @@ cd scripts
 node countries.js
 node leagues.js
 node teams.js
-node fixture.js
+node fixtures.js
 ```
