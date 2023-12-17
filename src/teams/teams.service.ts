@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateTeamDto } from './dto/create-team.dto';
@@ -11,6 +16,8 @@ export class TeamsService {
     @InjectRepository(Team) private readonly repository: Repository<Team>,
   ) {}
 
+  private readonly logger = new Logger(TeamsService.name);
+
   async create(createTeamDto: CreateTeamDto) {
     const teamExists = await this.repository.findOne({
       where: { team_id: createTeamDto.team_id },
@@ -18,8 +25,13 @@ export class TeamsService {
 
     if (teamExists) return teamExists;
 
-    const create = this.repository.create(createTeamDto);
-    return this.repository.save(create);
+    try {
+      const create = this.repository.create(createTeamDto);
+      return this.repository.save(create);
+    } catch (error) {
+      this.logger.error('Ocorreu um erro ao criar o time');
+      return new InternalServerErrorException('Error while creating team');
+    }
   }
 
   findAll() {

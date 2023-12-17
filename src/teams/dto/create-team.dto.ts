@@ -21,12 +21,13 @@ export class CreateTeamDto {
 
   @IsString()
   @IsOptional()
-  @ValidateIf((e) => e === '')
   @Max(3)
+  @ValidateIf((e) => e === '')
   code: string;
 
   @IsString()
   @IsUrl()
   @IsOptional()
+  @ValidateIf((e) => e === '')
   logo: string;
 }

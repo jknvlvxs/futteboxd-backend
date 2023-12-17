@@ -1,1 +1,289 @@
-{"api":{"results":47,"teams":[{"team_id":"119","name":"Internacional","code":"INT","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/119.png"},{"team_id":"121","name":"Palmeiras","code":"PAL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/121.png"},{"team_id":"126","name":"Sao Paulo","code":"PAU","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/126.png"},{"team_id":"127","name":"Flamengo","code":"FLA","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/127.png"},{"team_id":"130","name":"Gremio","code":"GRE","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/130.png"},{"team_id":"134","name":"Atletico Paranaense","code":"ATL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/134.png"},{"team_id":"135","name":"Cruzeiro","code":"CRU","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/135.png"},{"team_id":"435","name":"River Plate","code":"RIV","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/435.png"},{"team_id":"437","name":"Rosario Central","code":"ROS","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/437.png"},{"team_id":"439","name":"Godoy Cruz","code":"GOD","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/439.png"},{"team_id":"445","name":"Huracan","code":"HUR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/445.png"},{"team_id":"451","name":"Boca Juniors","code":"BOC","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/451.png"},{"team_id":"456","name":"Talleres Cordoba","code":"TAL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/456.png"},{"team_id":"460","name":"San Lorenzo","code":"LOR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/460.png"},{"team_id":"1062","name":"Atletico-MG","code":"ATL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1062.png"},{"team_id":"1128","name":"Independiente Medellin","code":"MED","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1128.png"},{"team_id":"1135","name":"Junior","code":"JUN","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1135.png"},{"team_id":"1137","name":"Atletico Nacional","code":"NAC","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1137.png"},{"team_id":"1142","name":"Deportes Tolima","code":"DEP","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1142.png"},{"team_id":"1148","name":"Emelec","code":"EME","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1148.png"},{"team_id":"1149","name":"Delfin SC","code":"","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1149.png"},{"team_id":"1152","name":"Barcelona SC","code":"BAR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1152.png"},{"team_id":"1158","name":"LDU de Quito","code":"QUI","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1158.png"},{"team_id":"1175","name":"Nacional Asuncion","code":"NAC","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1175.png"},{"team_id":"1176","name":"Cerro Porteno","code":"CER","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1176.png"},{"team_id":"1179","name":"Libertad Asuncion","code":"LIB","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1179.png"},{"team_id":"1182","name":"Olimpia","code":"OLI","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/1182.png"},{"team_id":"2318","name":"Palestino","code":"PAL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2318.png"},{"team_id":"2323","name":"Universidad de Chile","code":"CHI","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2323.png"},{"team_id":"2324","name":"Universidad de Concepcion","code":"CON","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2324.png"},{"team_id":"2348","name":"Penarol","code":"PEN","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2348.png"},{"team_id":"2350","name":"Defensor Sporting","code":"DEF","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2350.png"},{"team_id":"2352","name":"Danubio","code":"DAN","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2352.png"},{"team_id":"2356","name":"Club Nacional","code":"CLU","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2356.png"},{"team_id":"2546","name":"Sporting Cristal","code":"SPO","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2546.png"},{"team_id":"2547","name":"Real Garcilaso","code":"GAR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2547.png"},{"team_id":"2553","name":"Alianza Lima","code":"LIM","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2553.png"},{"team_id":"2554","name":"FBC Melgar","code":"MEL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2554.png"},{"team_id":"2806","name":"Zamora FC","code":"ZAM","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2806.png"},{"team_id":"2808","name":"Caracas FC","code":"CAR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2808.png"},{"team_id":"2812","name":"Deportivo Lara","code":"LAR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2812.png"},{"team_id":"2813","name":"Real Esppor Club","code":"LAG","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2813.png"},{"team_id":"2994","name":"U. Catolica","code":"CAT","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/2994.png"},{"team_id":"3702","name":"Bol\u00edvar","code":"BOL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/3702.png"},{"team_id":"3705","name":"Jorge Wilstermann","code":"WIL","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/3705.png"},{"team_id":"3710","name":"San Jos\u00e9","code":"JOS","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/3710.png"},{"team_id":"3711","name":"The Strongest","code":"STR","logo":"https:\/\/media-1.api-sports.io\/football\/teams\/3711.png"}]}}
+{
+  "api": {
+    "results": 47,
+    "teams": [
+      {
+        "team_id": "119",
+        "name": "Internacional",
+        "code": "INT",
+        "logo": "https://media-1.api-sports.io/football/teams/119.png"
+      },
+      {
+        "team_id": "121",
+        "name": "Palmeiras",
+        "code": "PAL",
+        "logo": "https://media-1.api-sports.io/football/teams/121.png"
+      },
+      {
+        "team_id": "126",
+        "name": "Sao Paulo",
+        "code": "PAU",
+        "logo": "https://media-1.api-sports.io/football/teams/126.png"
+      },
+      {
+        "team_id": "127",
+        "name": "Flamengo",
+        "code": "FLA",
+        "logo": "https://media-1.api-sports.io/football/teams/127.png"
+      },
+      {
+        "team_id": "130",
+        "name": "Gremio",
+        "code": "GRE",
+        "logo": "https://media-1.api-sports.io/football/teams/130.png"
+      },
+      {
+        "team_id": "134",
+        "name": "Atletico Paranaense",
+        "code": "ATL",
+        "logo": "https://media-1.api-sports.io/football/teams/134.png"
+      },
+      {
+        "team_id": "135",
+        "name": "Cruzeiro",
+        "code": "CRU",
+        "logo": "https://media-1.api-sports.io/football/teams/135.png"
+      },
+      {
+        "team_id": "435",
+        "name": "River Plate",
+        "code": "RIV",
+        "logo": "https://media-1.api-sports.io/football/teams/435.png"
+      },
+      {
+        "team_id": "437",
+        "name": "Rosario Central",
+        "code": "ROS",
+        "logo": "https://media-1.api-sports.io/football/teams/437.png"
+      },
+      {
+        "team_id": "439",
+        "name": "Godoy Cruz",
+        "code": "GOD",
+        "logo": "https://media-1.api-sports.io/football/teams/439.png"
+      },
+      {
+        "team_id": "445",
+        "name": "Huracan",
+        "code": "HUR",
+        "logo": "https://media-1.api-sports.io/football/teams/445.png"
+      },
+      {
+        "team_id": "451",
+        "name": "Boca Juniors",
+        "code": "BOC",
+        "logo": "https://media-1.api-sports.io/football/teams/451.png"
+      },
+      {
+        "team_id": "456",
+        "name": "Talleres Cordoba",
+        "code": "TAL",
+        "logo": "https://media-1.api-sports.io/football/teams/456.png"
+      },
+      {
+        "team_id": "460",
+        "name": "San Lorenzo",
+        "code": "LOR",
+        "logo": "https://media-1.api-sports.io/football/teams/460.png"
+      },
+      {
+        "team_id": "1062",
+        "name": "Atletico-MG",
+        "code": "ATL",
+        "logo": "https://media-1.api-sports.io/football/teams/1062.png"
+      },
+      {
+        "team_id": "1128",
+        "name": "Independiente Medellin",
+        "code": "MED",
+        "logo": "https://media-1.api-sports.io/football/teams/1128.png"
+      },
+      {
+        "team_id": "1135",
+        "name": "Junior",
+        "code": "JUN",
+        "logo": "https://media-1.api-sports.io/football/teams/1135.png"
+      },
+      {
+        "team_id": "1137",
+        "name": "Atletico Nacional",
+        "code": "NAC",
+        "logo": "https://media-1.api-sports.io/football/teams/1137.png"
+      },
+      {
+        "team_id": "1142",
+        "name": "Deportes Tolima",
+        "code": "DEP",
+        "logo": "https://media-1.api-sports.io/football/teams/1142.png"
+      },
+      {
+        "team_id": "1148",
+        "name": "Emelec",
+        "code": "EME",
+        "logo": "https://media-1.api-sports.io/football/teams/1148.png"
+      },
+      {
+        "team_id": "1149",
+        "name": "Delfin SC",
+        "code": "",
+        "logo": "https://media-1.api-sports.io/football/teams/1149.png"
+      },
+      {
+        "team_id": "1152",
+        "name": "Barcelona SC",
+        "code": "BAR",
+        "logo": "https://media-1.api-sports.io/football/teams/1152.png"
+      },
+      {
+        "team_id": "1158",
+        "name": "LDU de Quito",
+        "code": "QUI",
+        "logo": "https://media-1.api-sports.io/football/teams/1158.png"
+      },
+      {
+        "team_id": "1175",
+        "name": "Nacional Asuncion",
+        "code": "NAC",
+        "logo": "https://media-1.api-sports.io/football/teams/1175.png"
+      },
+      {
+        "team_id": "1176",
+        "name": "Cerro Porteno",
+        "code": "CER",
+        "logo": "https://media-1.api-sports.io/football/teams/1176.png"
+      },
+      {
+        "team_id": "1179",
+        "name": "Libertad Asuncion",
+        "code": "LIB",
+        "logo": "https://media-1.api-sports.io/football/teams/1179.png"
+      },
+      {
+        "team_id": "1182",
+        "name": "Olimpia",
+        "code": "OLI",
+        "logo": "https://media-1.api-sports.io/football/teams/1182.png"
+      },
+      {
+        "team_id": "2318",
+        "name": "Palestino",
+        "code": "PAL",
+        "logo": "https://media-1.api-sports.io/football/teams/2318.png"
+      },
+      {
+        "team_id": "2323",
+        "name": "Universidad de Chile",
+        "code": "CHI",
+        "logo": "https://media-1.api-sports.io/football/teams/2323.png"
+      },
+      {
+        "team_id": "2324",
+        "name": "Universidad de Concepcion",
+        "code": "CON",
+        "logo": "https://media-1.api-sports.io/football/teams/2324.png"
+      },
+      {
+        "team_id": "2348",
+        "name": "Penarol",
+        "code": "PEN",
+        "logo": "https://media-1.api-sports.io/football/teams/2348.png"
+      },
+      {
+        "team_id": "2350",
+        "name": "Defensor Sporting",
+        "code": "DEF",
+        "logo": "https://media-1.api-sports.io/football/teams/2350.png"
+      },
+      {
+        "team_id": "2352",
+        "name": "Danubio",
+        "code": "DAN",
+        "logo": "https://media-1.api-sports.io/football/teams/2352.png"
+      },
+      {
+        "team_id": "2356",
+        "name": "Club Nacional",
+        "code": "CLU",
+        "logo": "https://media-1.api-sports.io/football/teams/2356.png"
+      },
+      {
+        "team_id": "2546",
+        "name": "Sporting Cristal",
+        "code": "SPO",
+        "logo": "https://media-1.api-sports.io/football/teams/2546.png"
+      },
+      {
+        "team_id": "2547",
+        "name": "Real Garcilaso",
+        "code": "GAR",
+        "logo": "https://media-1.api-sports.io/football/teams/2547.png"
+      },
+      {
+        "team_id": "2553",
+        "name": "Alianza Lima",
+        "code": "LIM",
+        "logo": "https://media-1.api-sports.io/football/teams/2553.png"
+      },
+      {
+        "team_id": "2554",
+        "name": "FBC Melgar",
+        "code": "MEL",
+        "logo": "https://media-1.api-sports.io/football/teams/2554.png"
+      },
+      {
+        "team_id": "2806",
+        "name": "Zamora FC",
+        "code": "ZAM",
+        "logo": "https://media-1.api-sports.io/football/teams/2806.png"
+      },
+      {
+        "team_id": "2808",
+        "name": "Caracas FC",
+        "code": "CAR",
+        "logo": "https://media-1.api-sports.io/football/teams/2808.png"
+      },
+      {
+        "team_id": "2812",
+        "name": "Deportivo Lara",
+        "code": "LAR",
+        "logo": "https://media-1.api-sports.io/football/teams/2812.png"
+      },
+      {
+        "team_id": "2813",
+        "name": "Real Esppor Club",
+        "code": "LAG",
+        "logo": "https://media-1.api-sports.io/football/teams/2813.png"
+      },
+      {
+        "team_id": "2994",
+        "name": "U. Catolica",
+        "code": "CAT",
+        "logo": "https://media-1.api-sports.io/football/teams/2994.png"
+      },
+      {
+        "team_id": "3702",
+        "name": "Bol\u00edvar",
+        "code": "BOL",
+        "logo": "https://media-1.api-sports.io/football/teams/3702.png"
+      },
+      {
+        "team_id": "3705",
+        "name": "Jorge Wilstermann",
+        "code": "WIL",
+        "logo": "https://media-1.api-sports.io/football/teams/3705.png"
+      },
+      {
+        "team_id": "3710",
+        "name": "San Jos\u00e9",
+        "code": "JOS",
+        "logo": "https://media-1.api-sports.io/football/teams/3710.png"
+      },
+      {
+        "team_id": "3711",
+        "name": "The Strongest",
+        "code": "STR",
+        "logo": "https://media-1.api-sports.io/football/teams/3711.png"
+      }
+    ]
+  }
+}
